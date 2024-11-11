@@ -1,7 +1,10 @@
-.card-img {
-    width: 100%; /* Ajusta la imagen al ancho del contenedor */
-    height: 200px; /* Mantiene la proporción de la imagen */
-    max-height: 200px; /* Define una altura máxima */
-    object-fit: cover; /* Cubre el área del contenedor sin distorsionar la imagen */
-    padding-bottom: 12px;
+.gif-container {
+   column-count: 3;
+   column-gap: 1rem;
+}
+
+.gif-card {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1rem;
 }

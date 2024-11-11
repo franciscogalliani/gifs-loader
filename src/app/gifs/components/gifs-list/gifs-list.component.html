@@ -1,5 +1,5 @@
-<div class="row">
-    <div *ngFor="let gif of gifs" class="col-md-3 col-sm-6">
+<div class="gif-container">
+    <div *ngFor="let gif of gifs" class="gif-card">
         <gif-card [gif]="gif"></gif-card>
     </div>
 </div>

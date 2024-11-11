@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center">
+
+    <div
+        *ngIf="!_hasLoaded"
+        [style.width.px]="width"
+        [style.height.px]="height"
+        class="d-flex justify-content-center align-items-center "
+    >
+        <img 
+            src="https://raw.githubusercontent.com/SamHerbert/SVG-Loaders/5deed925369e57e9c58ba576ce303466984db501/svg-loaders/rings.svg" 
+            alt="loader"
+            height="75"
+            width="75"
+            class="mt-3"
+        > 
+    </div>
+
+   <img 
+        [src]="url" 
+        [alt]="alt" 
+        class="card-img-top animate__animated animate__fadeIn"
+        (load)="onLoad()"
+        [ngStyle]="{ display: _hasLoaded ? '' : 'none' }"
+    >
+
+
+    
+</div>
+

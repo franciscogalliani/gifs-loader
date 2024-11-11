@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { GifsListComponent } from './components/gifs-list/gifs-list.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { GifCardComponent } from './components/gif-card/gif-card.component';
+import { SharedModule } from "../shared/shared.module";
 
 
 @NgModule({
@@ -14,8 +15,9 @@ import { GifCardComponent } from './components/gif-card/gif-card.component';
     GifCardComponent
   ],
   imports: [
-    CommonModule
-  ],
+    CommonModule,
+    SharedModule
+],
   exports: [
     HomeComponent
   ]
