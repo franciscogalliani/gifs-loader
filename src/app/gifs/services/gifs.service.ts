@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
 })
 export class GifsService {
 
-  public gifsList: Gif[] = []
+  public gifsList: Gif[][] = []
 
   private _tagsHistory:string[] = [];
   private serviceUrl: string = "https://api.giphy.com/v1/gifs";
@@ -40,17 +40,25 @@ export class GifsService {
     }
   }
 
-  async searchTag(tag:string):Promise<void> {
+  async searchTag(tag:string, page?:number):Promise<void> {
+    const offset = (page ?? 0) * 12;
     const params = new HttpParams()
       .set('api_key', this.apiKey)
       .set('limit', 12)
-      .set('q', tag);
+      .set('q', tag)
+      .set('offset', offset);
 
     this.organizeHistory(tag);
 
     this.http.get<SearchResponse>(`${this.serviceUrl}/search`, { params })
     .subscribe( resp => {
-      this.gifsList = resp.data;
+      if(offset === 0){
+        this.gifsList = [resp.data]
+        this.scrollToTop();
+      } else {
+        
+        this.gifsList.push(resp.data);
+      }
     })
   }
 
@@ -62,5 +70,12 @@ export class GifsService {
       return true
     }
     return false
+  }
+
+  public scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 }

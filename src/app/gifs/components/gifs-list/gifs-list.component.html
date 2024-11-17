@@ -1,5 +1,7 @@
-<div class="gif-container">
-    <div *ngFor="let gif of gifs" class="gif-card">
-        <gif-card [gif]="gif"></gif-card>
+<div *ngFor="let container of gifs">
+    <div class="gif-container">
+    <div *ngFor="let gif of container"> 
+            <gif-card [gif]="gif"></gif-card>
+    </div>
     </div>
 </div>

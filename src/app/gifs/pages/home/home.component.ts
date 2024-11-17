@@ -11,7 +11,7 @@ export class HomeComponent {
 
   constructor( private gifsService: GifsService ) {}
 
-  get gifs():Gif[] {
+  get gifs():Gif[][] {
     return this.gifsService.gifsList;
   }
 
